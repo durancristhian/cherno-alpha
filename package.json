@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/durancristhian/cherno-alpha/issues"
   },
-  "homepage": "https://github.com/durancristhian/cherno-alpha"
+  "homepage": "https://github.com/durancristhian/cherno-alpha",
+  "dependencies": {
+    "express": "^4.6.1",
+    "jade": "^1.4.2",
+    "stylus": "^0.47.1",
+    "nib": "^1.0.3",
+    "serve-favicon": "^2.0.1"
+  }
 }
