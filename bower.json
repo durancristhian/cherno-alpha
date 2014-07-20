@@ -1,0 +1,28 @@
+{
+  "name": "cherno-alpha",
+  "version": "0.0.1",
+  "homepage": "https://github.com/durancristhian/cherno-alpha",
+  "authors": [
+    "Cristhian Duran <durancristhian@gmail.com>"
+  ],
+  "main": "bower.json",
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals",
+    "node",
+    "yui"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "pure": "latest",
+    "angular": "~1.2.20"
+  }
+}

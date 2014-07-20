@@ -1,14 +1,13 @@
 extend layout
 
-block content
-	img(src='assets/images/ariadna.jpg', alt='Ella es Ariadna Deon')
+block header
+	header
+		.pure-g.text-center
+			.pure-u-1
+				img(src="../assets/logo.png", alt="logo")
+				h1 Cherno Alpha
 
-block sidebar
-	.widget
-		h1 Ariadna
-		p
-			| Hola yo soy Ariadna, pero mis amigos me dicen Rempa (Una larga historia, no la voy a contar ahora).
-		p
-			| Me gusta adivinar.
-		p
-			| Y los chocolates.
+block content
+	div.content(ng-app="myApp")
+		div(ng-controller="myAppController" ng-init="init()")
+			p {{greeting}}
