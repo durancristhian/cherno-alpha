@@ -11,10 +11,11 @@ body {
   font-family: "Open Sans", sans-serif;
   font-size: 20px;
   letter-spacing: 2px;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  line-height: 20px;
 }
 a {
   display: inline-block;
+  line-height: 20px;
   text-decoration: none;
   vertical-align: middle;
 }
@@ -26,7 +27,7 @@ header {
 }
 header img {
   height: 50px;
-  margin-right: 1em;
+  margin-right: 0.5em;
   padding: 25px 0;
 }
 header img,
@@ -37,19 +38,110 @@ header h1 {
   vertical-align: middle;
 }
 header h1 {
-  font-weight: normal;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 .content {
   color: #242424;
-  margin: 2em 1em;
+  margin: 1em auto;
+  max-width: 480px;
+}
+.content .list-item {
+  background: #fff;
+  border-radius: 4px;
+  -webkit-box-shadow: 1px 1px 5px #c1bbaa;
+          box-shadow: 1px 1px 5px #c1bbaa;
+  display: block;
+  margin: 1em 0.5em 0;
+}
+.content .list-item:hover {
+  cursor: pointer;
+}
+.content .list-item .icon {
+  background: #e38065;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  color: #fff;
+  display: block;
+  font-size: 1.25em;
+  padding: 0.5em;
+  -webkit-transition: 0.2s all ease;
+          transition: 0.2s all ease;
+}
+.content .list-item .icon:hover {
+  background: #8b3219;
+}
+.content .list-item .item-header span {
+  display: inline-block;
+  letter-spacing: 1px;
+  padding: 0.75em 0 0.75em 0.5em;
+  vertical-align: middle;
+}
+.content .list-item .item-header .info {
+  color: #ccc;
+  font-size: 0.75em;
+}
+.content .tasks {
+  list-style: none;
+  margin: 2em 1em 1em;
+  padding: 0;
+}
+.content .tasks .input {
+  background: none;
+  border: none;
+  border-bottom: 1px dashed #ccc;
+  display: block;
+  letter-spacing: 2px;
+  margin: 0;
+  outline: none;
+  padding: 0.5em;
+  width: 100%;
+}
+.content .tasks .task {
+  margin-bottom: 1em;
+}
+.content .tasks .task:hover {
+  cursor: pointer;
+}
+.content .tasks .task .icon-checkbox:before {
+  content: "\e739";
+}
+.content .tasks .task .icon-checkbox.task-true:before {
+  color: #ccc;
+  content: "\e738";
+}
+.content .tasks .task .icon-remove {
+  -webkit-transition: 0.2s all ease;
+          transition: 0.2s all ease;
+}
+.content .tasks .task .icon-remove:hover {
+  color: #e38065;
+}
+.content .tasks .task .text {
+  font-size: 0.75em;
+  padding-left: 5px;
+}
+.content .tasks .task .text.task-true {
+  color: #ccc;
+  text-decoration: line-through;
 }
 .pure-g [class *="pure-u"],
 .pure-g-r [class *="pure-u"] {
   font-family: "Open Sans", sans-serif;
   font-size: 20px;
   letter-spacing: 2px;
+  line-height: 20px;
+}
+.simple-button {
+  border-radius: 4px;
+  color: #fff;
+  display: inline-block;
+  padding: 0.5em;
+  vertical-align: middle;
+}
+.simple-button.green {
+  background: #2ecc71;
 }
 .text-center {
   text-align: center;

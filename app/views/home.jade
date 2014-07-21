@@ -8,6 +8,27 @@ block header
 				h1 Cherno Alpha
 
 block content
-	div.content(ng-app="myApp")
-		div(ng-controller="myAppController" ng-init="init()")
-			p {{greeting}}
+	.content(ng-app="myApp")
+		.pure-g(ng-controller="myAppController" ng-init="init()")
+			.pure-u-1(ng-repeat="todoList in storage.todoLists")
+				.pure-g.list-item
+					.pure-u-20-24
+						.item-header(ng-click="showTasks = !showTasks")
+							span.text {{todoList.name}}
+							span.info ({{getAmountOfDoneTasks(todoList)}}/{{todoList.tasks.length}})
+					.pure-u-4-24
+						a.icon.icon-notification.text-center(href="#" ng-click="showInformation()")
+				ul.tasks(ng-show="showTasks")
+					li.task.pure-g(ng-repeat="task in todoList.tasks")
+						div(class="pure-u-2-24" ng-click="task.done = !task.done")
+							span(class="icon-checkbox task-{{task.done}}")
+						div(class="pure-u-20-24" ng-click="task.done = !task.done")
+							span(class="text task-{{task.done}}") {{task.text}}
+						div(class="pure-u-2-24")
+							span(class="icon-remove task-{{task.done}}" ng-click="deleteTask(todoList, $index)")
+					li.task
+						div(class="pure-u-20-24")
+							form(ng-submit="addTask(todoList)")
+								input(type="text" placeholder="I want to..." class="input" ng-model="newTask")
+						div(class="pure-u-4-24 text-center")
+							a(href="#" ng-click="addTask(todoList)" class="simple-button green icon-plus")
