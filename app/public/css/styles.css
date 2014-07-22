@@ -160,6 +160,7 @@ header h1 {
   line-height: 20px;
   margin-top: 2em;
   padding: 0.5em;
+  text-align: center;
   text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
   vertical-align: middle;
 }
