@@ -11,24 +11,32 @@ block content
 	.content(ng-app="myApp")
 		.pure-g(ng-controller="myAppController" ng-init="init()")
 			.pure-u-1(ng-repeat="todoList in storage.todoLists")
-				.pure-g.list-item
-					.pure-u-20-24
-						.item-header(ng-click="showTasks = !showTasks")
-							span.text {{todoList.name}}
-							span.info ({{getAmountOfDoneTasks(todoList)}}/{{todoList.tasks.length}})
-					.pure-u-4-24
-						a.icon.icon-notification.text-center(href="#" ng-click="showInformation()")
-				ul.tasks(ng-show="showTasks")
-					li.task.pure-g(ng-repeat="task in todoList.tasks")
-						div(class="pure-u-2-24" ng-click="task.done = !task.done")
-							span(class="icon-checkbox task-{{task.done}}")
-						div(class="pure-u-20-24" ng-click="task.done = !task.done")
-							span(class="text task-{{task.done}}") {{task.text}}
-						div(class="pure-u-2-24")
-							span(class="icon-remove task-{{task.done}}" ng-click="deleteTask(todoList, $index)")
-					li.task
-						div(class="pure-u-20-24")
-							form(ng-submit="addTask(todoList)")
-								input(type="text" placeholder="I want to..." class="input" ng-model="newTask")
-						div(class="pure-u-4-24 text-center")
-							a(href="#" ng-click="addTask(todoList)" class="simple-button green icon-plus")
+				.list-item
+					.item-header
+						span.text.text-center.container(ng-click="showTasks = !showTasks") {{todoList.name}}
+						div.clear.container
+							span.left.info {{getAmountOfDoneTasks(todoList)}} de {{todoList.tasks.length}}
+							a(href="#" class="right" ng-click="deleteList($index)")
+								span.icon.icon-close
+								span Eliminar
+					ul.tasks.container(ng-show="showTasks")
+						li.task.pure-g(ng-repeat="task in todoList.tasks")
+							div(class="pure-u-2-24" ng-click="task.done = !task.done")
+								span(class="icon-checkbox task-{{task.done}}")
+							div(class="pure-u-20-24" ng-click="task.done = !task.done")
+								span(class="task-text task-{{task.done}}") {{task.text}}
+							div(class="pure-u-2-24")
+								span(class="icon-remove" ng-click="deleteTask(todoList.tasks, $index)")
+						li(ng-controller="TaskController")
+							form(ng-submit="addTask(todoList.tasks)")
+								input(type="text" placeholder="Quiero..." class="input" ng-model="newTask")
+							a(href="#" ng-click="addTask(todoList.tasks)" class="simple-button text-center green")
+								span.icon.icon-plus
+								span Crear tarea
+			.pure-u-1
+				.newList
+					p.text-center Crear una nueva lista
+					input(type="text" class="input text-center" ng-model="newList" placeholder="Vacaciones")
+					a(href="#" class="simple-button green" ng-click="addList()")
+						span.icon.icon-plus
+						span Agregar

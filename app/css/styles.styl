@@ -11,6 +11,7 @@ gray = #F4F3F0
 green = #2ecc71
 red = #E38065
 white = #fff
+yellow = lighten(#f1c40f, 25%)
 
 /* Mixins */
 Transition()
@@ -26,15 +27,11 @@ body
 	line-height 20px
 
 a
-	display inline-block
-	line-height 20px
 	text-decoration none
-	vertical-align middle
 
 header
 	background red
 	border-bottom 2px solid darken(red, 50%)
-	box-shadow 0 2px 5px rgba(0, 0, 0, .2)
 
 	img
 		height 50px
@@ -52,88 +49,110 @@ header
 		padding 0
 		text-shadow 1px 1px 3px rgba(0, 0, 0, .2)
 
+.clear
+	clear both
+	overflow hidden
+
 .content
 	color black
-	margin 1em auto
+	margin 2.5em auto
 	max-width 480px
 
-	.list-item
-		background white
-		border-radius 4px
-		box-shadow 1px 1px 5px darken(gray, 25%)
+.icon
+	margin 0 .75em
+
+.input
+	background none
+	border 1px solid yellow
+	border-radius 4px
+	color black
+	display block
+	font-style italic
+	letter-spacing 2px
+	margin 0
+	outline none
+	padding .5em 0
+	text-align center
+	width 100%
+
+.left
+	float left
+
+.list-item
+	background white
+	border-radius 4px
+	box-shadow 0 2px 0 darken(gray, 25%)
+	margin 0 .5em 1.5em
+
+	.clear
+
+		a:hover span
+			color black
+
+		span
+			color darken(darkGray, 25%)
+			display inline-block
+			font-size .8em
+			padding .25em
+			Transition()
+			vertical-align middle
+
+	.tasks
+		font-size .8em
+		list-style none
+		margin 0
+		padding 0
+
+		form 
+			margin-top 2.5em
+
+		.icon-checkbox:before
+			content "\e739"
+
+		.icon-checkbox.task-true:before
+			content "\e738"
+
+		.icon-remove
+			Transition()
+		
+			&:hover
+				color red
+				cursor pointer
+
+		.task
+			margin 1em 0
+
+			.task-true
+				color darkGray
+
+				&.task-text
+					text-decoration line-through
+
+		.task-text
+			padding-left 10px
+
+	.text
+		background yellow
+		border 1px solid darken(yellow, 25%)
+		border-top-left-radius 4px
+		border-top-right-radius 4px
 		display block
-		margin 1em .5em 0
+		font-weight bold
+		margin 0
+		text-transform uppercase
 
 		&:hover
 			cursor pointer
 
-		.icon
-			background red
-			border-top-right-radius 4px
-			border-bottom-right-radius 4px
-			color white
-			display block
-			font-size 1.25em
-			padding .5em
-			Transition()
+	.container
+		padding 1em
 
-			&:hover
-				background darken(red, 50%)
-
-		.item-header
-
-			span
-				display inline-block
-				letter-spacing 1px
-				padding .75em 0 .75em .5em
-				vertical-align middle
-
-			.info
-				color darkGray
-				font-size .75em
-
-	.tasks
-		list-style none
-		margin 2em 1em 1em
-		padding 0
-
-		.input
-			background none
-			border none
-			border-bottom 1px dashed darkGray
-			display block
-			letter-spacing 2px
-			margin 0
-			outline none
-			padding .5em
-			width 100%
-
-		.task
-			margin-bottom 1em
-
-			&:hover
-				cursor: pointer
-
-			.icon-checkbox:before
-				content "\e739"
-
-			.icon-checkbox.task-true:before
-				color darkGray
-				content "\e738"
-
-			.icon-remove
-				Transition()
-
-				&:hover
-					color red
-
-			.text
-				font-size .75em
-				padding-left 5px
-
-				&.task-true
-					color darkGray
-					text-decoration line-through
+.newList
+	background white
+	border 2px solid darkGray
+	font-size .8em
+	margin 2.5em .5em 0
+	padding 1em
 
 .pure-g [class *="pure-u"],.pure-g-r [class *="pure-u"]
 	font-family "Open Sans", sans-serif
@@ -141,15 +160,29 @@ header
 	letter-spacing 2px
 	line-height 20px
 
+.right
+	float right
+
 .simple-button
 	border-radius 4px
 	color white
-	display inline-block
+	display block
+	line-height 20px
+	margin-top 2em
 	padding .5em
+	text-shadow 1px 1px 1px rgba(0, 0, 0, .2)
 	vertical-align middle
 
 	&.green
 		background green
+		box-shadow 0 2px 0 darken(green, 25%)
+
+	span
+		display inline-block
+		vertical-align middle
 
 .text-center
 	text-align center
+
+.wrapper
+	margin 2.5em 0

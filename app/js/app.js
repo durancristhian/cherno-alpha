@@ -4,16 +4,11 @@ myApp.controller("myAppController", function ($scope, $localStorage) {
 
 	$scope.init = function () {
 
-		$scope.storage = $localStorage.$reset({
-			todoLists: [{
-				name: "My list",
-				tasks: []
-			}]
+		$scope.storage = $localStorage.$default({
+			todoLists: []
 		});
-
 		$scope.showTasks = false;
-		$scope.newTask = "";
-	}
+	};
 
 	$scope.getAmountOfDoneTasks = function (todoList) {
 
@@ -26,23 +21,44 @@ myApp.controller("myAppController", function ($scope, $localStorage) {
 		});
 
 		return amount;
-	}
+	};
 
-	$scope.showInformation = function () {
+	$scope.deleteList = function (index) {
 
-		alert("Be patient. I'm working on this functionality.");
-	}
+		$scope.storage.todoLists.splice(index, 1);
+	};
 
-	$scope.addTask = function (todoList) {
+	$scope.deleteTask = function (tasks, index) {
+
+		tasks.splice(index, 1);
+	};
+
+	$scope.addList = function () {
+
+		if($scope.newList !== undefined && $scope.newList !== "") {
+
+			$scope.storage.todoLists.push({
+				name: $scope.newList,
+				tasks: []
+			});
+
+			$scope.newList = "";
+		}
+	};
+});
+
+myApp.controller("TaskController", function ($scope) {
+
+	$scope.addTask = function (tasks) {
 
 		if($scope.newTask !== undefined && $scope.newTask !== "") {
 
-			todoList.tasks.push({
+			tasks.push({
 				text: $scope.newTask,
 				done: false
 			});
 
 			$scope.newTask = "";
 		}
-	}
+	};
 });
