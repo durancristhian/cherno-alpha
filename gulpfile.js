@@ -28,4 +28,4 @@ gulp.task('watch', function() {
 	gulp.watch('./app/css/*.styl', ['styles']);
 });
 
-gulp.task('default', ["styles"]);
+gulp.task('default', ["watch"]);

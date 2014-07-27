@@ -25,5 +25,9 @@
     "pure": "latest",
     "angular": "~1.2.20",
     "ngstorage": "~0.3.0"
+  },
+  "dependencies": {
+    "angular-animate": "~1.2.21",
+    "animate.css": "~3.2.0"
   }
 }

@@ -1,4 +1,4 @@
-var myApp = angular.module("myApp", ["ngStorage"]);
+var myApp = angular.module("myApp", ["ngStorage", "ngAnimate"]);
 
 myApp.controller("myAppController", function ($scope, $localStorage) {
 
@@ -7,7 +7,6 @@ myApp.controller("myAppController", function ($scope, $localStorage) {
 		$scope.storage = $localStorage.$default({
 			todoLists: []
 		});
-		$scope.showTasks = false;
 	};
 
 	$scope.getAmountOfDoneTasks = function (todoList) {
@@ -26,6 +25,7 @@ myApp.controller("myAppController", function ($scope, $localStorage) {
 	$scope.deleteList = function (index) {
 
 		$scope.storage.todoLists.splice(index, 1);
+		
 	};
 
 	$scope.deleteTask = function (tasks, index) {

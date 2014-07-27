@@ -1,19 +1,24 @@
+/* AnimateCSS */
+@import "../../bower_components/animate.css/animate.min.css";
 /* PureCSS */
 @import "../../bower_components/pure/pure-min.css";
 /* Icons */
 @import "../../css/icons.css";
+/* Open Sans font */
+@import "../../css/open-sans.css";
 /* Variables */
 /* Mixins */
 /* Styles */
 body {
-  background: #f4f3f0;
+  background: #f9f9f9;
   color: #fff;
-  font-family: "Open Sans", sans-serif;
-  font-size: 20px;
+  font-family: "OpenSans", sans-serif;
+  font-size: 18px;
   letter-spacing: 2px;
-  line-height: 20px;
+  line-height: 1.75em;
 }
 a {
+  cursor: pointer;
   text-decoration: none;
 }
 header {
@@ -33,6 +38,7 @@ header h1 {
   vertical-align: middle;
 }
 header h1 {
+  font-family: "OpenSans-Bold", sans-serif;
   margin: 0;
   padding: 0;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
@@ -41,9 +47,12 @@ header h1 {
   clear: both;
   overflow: hidden;
 }
+.container {
+  padding: 1em 0.5em;
+}
 .content {
   color: #242424;
-  margin: 2.5em auto;
+  margin: 0 auto;
   max-width: 480px;
 }
 .icon {
@@ -51,11 +60,12 @@ header h1 {
 }
 .input {
   background: none;
-  border: 1px solid #f4d34b;
-  border-radius: 4px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
   color: #242424;
   display: block;
-  font-style: italic;
+  font-family: "OpenSans-Italic", sans-serif;
   letter-spacing: 2px;
   margin: 0;
   outline: none;
@@ -69,30 +79,43 @@ header h1 {
 .list-item {
   background: #fff;
   border-radius: 4px;
-  -webkit-box-shadow: 0 2px 0 #c1bbaa;
-          box-shadow: 0 2px 0 #c1bbaa;
-  margin: 0 0.5em 1.5em;
+  -webkit-box-shadow: 0 2px 0 #c7c7c7;
+          box-shadow: 0 2px 0 #c7c7c7;
+  margin: 0 0 1.5em;
+}
+.list-item form {
+  margin-top: 1.5em;
 }
 .list-item .clear a:hover span {
-  color: #242424;
+  color: #e38065;
 }
 .list-item .clear span {
   color: #999;
   display: inline-block;
-  font-size: 0.8em;
+  font-size: 0.9em;
   padding: 0.25em;
   -webkit-transition: 0.2s all ease;
           transition: 0.2s all ease;
   vertical-align: middle;
 }
+.list-item .container {
+  padding: 0.5em;
+}
+.list-item .item-panel {
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
 .list-item .tasks {
-  font-size: 0.8em;
+  font-size: 0.9em;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 .list-item .tasks form {
-  margin-top: 2.5em;
+  margin-top: 1.5em;
+}
+.list-item .tasks .icon-checkbox {
+  line-height: 1.75em;
 }
 .list-item .tasks .icon-checkbox:before {
   content: "\e739";
@@ -101,6 +124,7 @@ header h1 {
   content: "\e738";
 }
 .list-item .tasks .icon-remove {
+  line-height: 1.75em;
   -webkit-transition: 0.2s all ease;
           transition: 0.2s all ease;
 }
@@ -109,7 +133,22 @@ header h1 {
   cursor: pointer;
 }
 .list-item .tasks .task {
-  margin: 1em 0;
+  background: #f9f9f9;
+}
+.list-item .tasks .task:first-child {
+  border-top: 1px solid #ccc;
+}
+.list-item .tasks .task:last-child {
+  border-bottom: 1px solid #ccc;
+}
+.list-item .tasks .task span {
+  display: block;
+}
+.list-item .tasks .task span:hover {
+  cursor: pointer;
+}
+.list-item .tasks .task .container {
+  width: 100%;
 }
 .list-item .tasks .task .task-true {
   color: #ccc;
@@ -125,33 +164,33 @@ header h1 {
   border: 1px solid #e1b80e;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
+  color: #fff;
   display: block;
-  font-weight: bold;
+  font-family: "OpenSans-Bold", sans-serif;
+  font-size: 1.25em;
   margin: 0;
-  text-transform: uppercase;
-}
-.list-item .text:hover {
-  cursor: pointer;
-}
-.list-item .container {
-  padding: 1em;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 .newList {
-  background: #fff;
-  border: 2px solid #ccc;
-  font-size: 0.8em;
-  margin: 2.5em 0.5em 0;
-  padding: 1em;
+  background: #f2f2f4;
+  border-bottom: 1px solid #ccc;
+}
+.newList .input {
+  border: none;
 }
 .pure-g [class *="pure-u"],
 .pure-g-r [class *="pure-u"] {
-  font-family: "Open Sans", sans-serif;
-  font-size: 20px;
+  font-family: "OpenSans", sans-serif;
+  font-size: 18px;
   letter-spacing: 2px;
-  line-height: 20px;
+  line-height: 1.75em;
 }
 .right {
   float: right;
+}
+.section-title {
+  font-family: "OpenSans", sans-serif;
+  font-size: 1.15em;
 }
 .simple-button {
   border-radius: 4px;
@@ -178,4 +217,13 @@ header h1 {
 }
 .wrapper {
   margin: 2.5em 0;
+}
+/* Animaciones */
+.fadeIn.ng-enter {
+  -webkit-animation: fadeInUp 0.5s;
+          animation: fadeInUp 0.5s;
+}
+.fadeIn.ng-leave {
+  -webkit-animation: fadeOutUp 0.5s;
+          animation: fadeOutUp 0.5s;
 }

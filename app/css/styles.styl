@@ -1,14 +1,21 @@
+/* AnimateCSS */
+@import "../../bower_components/animate.css/animate.min.css"
+
 /* PureCSS */
 @import "../../bower_components/pure/pure-min.css"
 
 /* Icons */
 @import "../../css/icons.css"
 
+/* Open Sans font */
+@import "../../css/open-sans.css"
+
 /* Variables */
 black = #242424
 darkGray = #ccc
-gray = #F4F3F0
+gray = #F9F9F9
 green = #2ecc71
+mediumGray = #F2F2F4
 red = #E38065
 white = #fff
 yellow = lighten(#f1c40f, 25%)
@@ -21,12 +28,13 @@ Transition()
 body
 	background gray
 	color white
-	font-family "Open Sans", sans-serif
-	font-size 20px
+	font-family "OpenSans", sans-serif
+	font-size 18px
 	letter-spacing 2px
-	line-height 20px
+	line-height 1.75em
 
 a
+	cursor pointer
 	text-decoration none
 
 header
@@ -45,6 +53,7 @@ header
 		vertical-align middle
 
 	h1
+		font-family "OpenSans-Bold", sans-serif
 		margin 0
 		padding 0
 		text-shadow 1px 1px 3px rgba(0, 0, 0, .2)
@@ -53,9 +62,12 @@ header
 	clear both
 	overflow hidden
 
+.container
+	padding 1em .5em
+
 .content
 	color black
-	margin 2.5em auto
+	margin 0 auto
 	max-width 480px
 
 .icon
@@ -63,11 +75,12 @@ header
 
 .input
 	background none
-	border 1px solid yellow
-	border-radius 4px
+	border none
+	border-bottom 1px solid darkGray
+	border-top 1px solid darkGray
 	color black
 	display block
-	font-style italic
+	font-family "OpenSans-Italic", sans-serif
 	letter-spacing 2px
 	margin 0
 	outline none
@@ -81,46 +94,75 @@ header
 .list-item
 	background white
 	border-radius 4px
-	box-shadow 0 2px 0 darken(gray, 25%)
-	margin 0 .5em 1.5em
+	box-shadow 0 2px 0 darken(gray, 20%)
+	margin 0 0 1.5em
+
+	form
+		margin-top 1.5em
 
 	.clear
 
 		a:hover span
-			color black
+			color red
 
 		span
 			color darken(darkGray, 25%)
 			display inline-block
-			font-size .8em
+			font-size .9em
 			padding .25em
 			Transition()
 			vertical-align middle
 
+	.container
+		padding .5em
+
+	.item-panel
+		border-left 1px solid darkGray
+		border-right 1px solid darkGray
+
 	.tasks
-		font-size .8em
+		font-size .9em
 		list-style none
 		margin 0
 		padding 0
 
 		form 
-			margin-top 2.5em
+			margin-top 1.5em
 
-		.icon-checkbox:before
-			content "\e739"
+		.icon-checkbox
+			line-height 1.75em
 
-		.icon-checkbox.task-true:before
-			content "\e738"
+			&:before
+				content "\e739"
+
+			&.task-true:before
+				content "\e738"
 
 		.icon-remove
+			line-height 1.75em
 			Transition()
-		
+
 			&:hover
 				color red
 				cursor pointer
 
 		.task
-			margin 1em 0
+			background gray
+
+			&:first-child
+				border-top 1px solid darkGray
+
+			&:last-child
+				border-bottom 1px solid darkGray
+
+			span
+				display block
+
+				&:hover
+					cursor pointer
+
+			.container
+				width 100%
 
 			.task-true
 				color darkGray
@@ -136,32 +178,32 @@ header
 		border 1px solid darken(yellow, 25%)
 		border-top-left-radius 4px
 		border-top-right-radius 4px
+		color white
 		display block
-		font-weight bold
+		font-family "OpenSans-Bold", sans-serif
+		font-size 1.25em
 		margin 0
-		text-transform uppercase
-
-		&:hover
-			cursor pointer
-
-	.container
-		padding 1em
+		text-shadow 1px 1px 2px rgba(0, 0, 0, .5)
 
 .newList
-	background white
-	border 2px solid darkGray
-	font-size .8em
-	margin 2.5em .5em 0
-	padding 1em
+	background mediumGray
+	border-bottom 1px solid darkGray
+
+	.input
+		border none
 
 .pure-g [class *="pure-u"],.pure-g-r [class *="pure-u"]
-	font-family "Open Sans", sans-serif
-	font-size 20px
+	font-family "OpenSans", sans-serif
+	font-size 18px
 	letter-spacing 2px
-	line-height 20px
+	line-height 1.75em
 
 .right
 	float right
+
+.section-title
+	font-family "OpenSans", sans-serif
+	font-size 1.15em
 
 .simple-button
 	border-radius 4px
@@ -187,3 +229,12 @@ header
 
 .wrapper
 	margin 2.5em 0
+
+/* Animaciones */
+.fadeIn
+
+	&.ng-enter
+		animation fadeInUp .5s
+
+	&.ng-leave
+		animation fadeOutUp .5s
