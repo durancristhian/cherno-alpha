@@ -4,7 +4,7 @@ myApp.controller("myAppController", function ($scope, $localStorage) {
 
 	$scope.init = function () {
 
-		$scope.storage = $localStorage.$default({
+		$scope.storage = $localStorage.$reset({
 			todoLists: []
 		});
 	};

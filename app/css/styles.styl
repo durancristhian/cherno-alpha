@@ -7,15 +7,14 @@
 /* Icons */
 @import "../../css/icons.css"
 
-/* Open Sans font */
-@import "../../css/open-sans.css"
-
 /* Variables */
 black = #242424
+blue = #2B2F3E
 darkGray = #ccc
 gray = #F9F9F9
 green = #2ecc71
 mediumGray = #F2F2F4
+orange = #e67e22
 red = #E38065
 white = #fff
 yellow = lighten(#f1c40f, 25%)
@@ -28,207 +27,82 @@ Transition()
 body
 	background gray
 	color white
-	font-family "OpenSans", sans-serif
-	font-size 18px
+	font-family 'Oxygen', sans-serif
+	font-size 16px
 	letter-spacing 2px
-	line-height 1.75em
+	min-height 500px
+	min-width 768px
 
 a
 	cursor pointer
 	text-decoration none
 
+h1, h2, h3, h4, h5, h6
+	font-weight normal
+	text-shadow 1px 1px 3px rgba(0, 0, 0, .3)
+
 header
-	background red
-	border-bottom 2px solid darken(red, 50%)
-
-	img
-		height 50px
-		margin-right .5em
-		padding 25px 0
-
-	img, h1
-		color white
-		display inline-block
-		font-size 1.5em
-		vertical-align middle
-
-	h1
-		font-family "OpenSans-Bold", sans-serif
-		margin 0
-		padding 0
-		text-shadow 1px 1px 3px rgba(0, 0, 0, .2)
-
-.clear
-	clear both
+	margin-bottom 2.5em
 	overflow hidden
 
-.container
-	padding 1em .5em
+	img
+		height 75px
 
-.content
-	color black
-	margin 0 auto
-	max-width 480px
+	img, h1
+		display block
+		margin .5em auto
+
+	h1
+		color white
+		font-size 2em
+		text-transform uppercase
+		padding 0
 
 .icon
 	margin 0 .75em
 
 .input
-	background none
 	border none
-	border-bottom 1px solid darkGray
-	border-top 1px solid darkGray
-	color black
-	display block
-	font-family "OpenSans-Italic", sans-serif
+	font-family 'Oxygen', sans-serif
 	letter-spacing 2px
-	margin 0
 	outline none
-	padding .5em 0
-	text-align center
+	padding 1em
 	width 100%
 
-.left
-	float left
-
-.list-item
-	background white
-	border-radius 4px
-	box-shadow 0 2px 0 darken(gray, 20%)
-	margin 0 0 1.5em
-
-	form
-		margin-top 1.5em
-
-	.clear
-
-		a:hover span
-			color red
-
-		span
-			color darken(darkGray, 25%)
-			display inline-block
-			font-size .9em
-			padding .25em
-			Transition()
-			vertical-align middle
-
-	.container
-		padding .5em
-
-	.item-panel
-		border-left 1px solid darkGray
-		border-right 1px solid darkGray
-
-	.tasks
-		font-size .9em
-		list-style none
-		margin 0
-		padding 0
-
-		form 
-			margin-top 1.5em
-
-		.icon-checkbox
-			line-height 1.75em
-
-			&:before
-				content "\e739"
-
-			&.task-true:before
-				content "\e738"
-
-		.icon-remove
-			line-height 1.75em
-			Transition()
-
-			&:hover
-				color red
-				cursor pointer
-
-		.task
-			background gray
-
-			&:first-child
-				border-top 1px solid darkGray
-
-			&:last-child
-				border-bottom 1px solid darkGray
-
-			span
-				display block
-
-				&:hover
-					cursor pointer
-
-			.container
-				width 100%
-
-			.task-true
-				color darkGray
-
-				&.task-text
-					text-decoration line-through
-
-		.task-text
-			padding-left 10px
-
-	.text
-		background yellow
-		border 1px solid darken(yellow, 25%)
-		border-top-left-radius 4px
-		border-top-right-radius 4px
-		color white
-		display block
-		font-family "OpenSans-Bold", sans-serif
-		font-size 1.25em
-		margin 0
-		text-shadow 1px 1px 2px rgba(0, 0, 0, .5)
-
 .newList
-	background mediumGray
-	border-bottom 1px solid darkGray
+	margin-bottom 2.5em
 
-	.input
-		border none
+.panel
+	height 100%
 
 .pure-g [class *="pure-u"],.pure-g-r [class *="pure-u"]
-	font-family "OpenSans", sans-serif
-	font-size 18px
+	font-family 'Oxygen', sans-serif
+	font-size 16px
 	letter-spacing 2px
-	line-height 1.75em
 
-.right
-	float right
-
-.section-title
-	font-family "OpenSans", sans-serif
-	font-size 1.15em
-
-.simple-button
-	border-radius 4px
-	color white
-	display block
-	line-height 20px
-	margin-top 2em
-	padding .5em
-	text-align center
-	text-shadow 1px 1px 1px rgba(0, 0, 0, .2)
-	vertical-align middle
-
-	&.green
-		background green
-		box-shadow 0 2px 0 darken(green, 25%)
-
-	span
-		display inline-block
-		vertical-align middle
+.red-panel
+	background red
+	border-right 2px solid darken(red, 50%)
 
 .text-center
 	text-align center
 
-.wrapper
-	margin 2.5em 0
+.todoList
+	padding .75em 0 .75em 1em
+	border-bottom 1px solid lighten(red, 25%)
+	Transition()
+
+	&:first-child
+		border-top 1px solid lighten(red, 25%)
+
+	&:hover
+		background darken(red, 25%)
+		cursor pointer
+		padding-left 1.5em
+
+	.name
+		font-weight bold
+		margin .5em 0
 
 /* Animaciones */
 .fadeIn
