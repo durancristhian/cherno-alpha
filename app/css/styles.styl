@@ -8,107 +8,62 @@
 @import "../../css/icons.css"
 
 /* Variables */
-black = #242424
-blue = #2B2F3E
-darkGray = #ccc
+black = #666
+blueLight = #77B3D4
+blue = darken(blueLight, 25%)
 gray = #F9F9F9
-green = #2ecc71
-mediumGray = #F2F2F4
-orange = #e67e22
-red = #E38065
+grayDark = #CCC
+grayMedium = #F2F2F4
 white = #fff
-yellow = lighten(#f1c40f, 25%)
 
 /* Mixins */
-Transition()
-	transition .2s all ease
+AlignChilds(_childsAlign, _verticalAlign)
+	text-align center
+	*
+		display inline-block
+		vertical-align _verticalAlign
 
-/* Styles */
+Transition()
+	transition .25s all ease
+
+/* Base */
 body
 	background gray
-	color white
-	font-family 'Oxygen', sans-serif
-	font-size 16px
+	color black
+	font-family: 'Arimo', sans-serif;
+	font-size 20px
 	letter-spacing 2px
 	min-height 500px
 	min-width 768px
 
-a
-	cursor pointer
-	text-decoration none
+.container
+	padding .75em .5em
 
-h1, h2, h3, h4, h5, h6
-	font-weight normal
-	text-shadow 1px 1px 3px rgba(0, 0, 0, .3)
-
+/* Header */
 header
-	margin-bottom 2.5em
-	overflow hidden
+	background white
+	border-top 3px solid blue
+	border-bottom 2px solid grayDark
+	padding 1em .5em
+	AlignChilds(center, middle)
 
-	img
-		height 75px
+	.logo
+		display inline-block
+		font-size 1.25em
+		margin 0
+		Transition()
+		AlignChilds(center, middle)
 
-	img, h1
-		display block
-		margin .5em auto
+		&:hover
+			cursor default
 
-	h1
-		color white
-		font-size 2em
-		text-transform uppercase
-		padding 0
+			.logo-text
+				letter-spacing 5px
 
-.icon
-	margin 0 .75em
+		.logo-image
+			height 2em
+			width 2em
 
-.input
-	border none
-	font-family 'Oxygen', sans-serif
-	letter-spacing 2px
-	outline none
-	padding 1em
-	width 100%
-
-.newList
-	margin-bottom 2.5em
-
-.panel
-	height 100%
-
-.pure-g [class *="pure-u"],.pure-g-r [class *="pure-u"]
-	font-family 'Oxygen', sans-serif
-	font-size 16px
-	letter-spacing 2px
-
-.red-panel
-	background red
-	border-right 2px solid darken(red, 50%)
-
-.text-center
-	text-align center
-
-.todoList
-	padding .75em 0 .75em 1em
-	border-bottom 1px solid lighten(red, 25%)
-	Transition()
-
-	&:first-child
-		border-top 1px solid lighten(red, 25%)
-
-	&:hover
-		background darken(red, 25%)
-		cursor pointer
-		padding-left 1.5em
-
-	.name
-		font-weight bold
-		margin .5em 0
-
-/* Animaciones */
-.fadeIn
-
-	&.ng-enter
-		animation fadeInUp .5s
-
-	&.ng-leave
-		animation fadeOutUp .5s
+		.logo-text
+			padding-left .5em
+			Transition()

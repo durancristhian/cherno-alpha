@@ -6,101 +6,55 @@
 @import "../../css/icons.css";
 /* Variables */
 /* Mixins */
-/* Styles */
+/* Base */
 body {
   background: #f9f9f9;
-  color: #fff;
-  font-family: 'Oxygen', sans-serif;
-  font-size: 16px;
+  color: #666;
+  font-family: 'Arimo', sans-serif;
+  font-size: 20px;
   letter-spacing: 2px;
   min-height: 500px;
   min-width: 768px;
 }
-a {
-  cursor: pointer;
-  text-decoration: none;
+.container {
+  padding: 0.75em 0.5em;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: normal;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-}
+/* Header */
 header {
-  margin-bottom: 2.5em;
-  overflow: hidden;
-}
-header img {
-  height: 75px;
-}
-header img,
-header h1 {
-  display: block;
-  margin: 0.5em auto;
-}
-header h1 {
-  color: #fff;
-  font-size: 2em;
-  text-transform: uppercase;
-  padding: 0;
-}
-.icon {
-  margin: 0 0.75em;
-}
-.input {
-  border: none;
-  font-family: 'Oxygen', sans-serif;
-  letter-spacing: 2px;
-  outline: none;
-  padding: 1em;
-  width: 100%;
-}
-.newList {
-  margin-bottom: 2.5em;
-}
-.panel {
-  height: 100%;
-}
-.pure-g [class *="pure-u"],
-.pure-g-r [class *="pure-u"] {
-  font-family: 'Oxygen', sans-serif;
-  font-size: 16px;
-  letter-spacing: 2px;
-}
-.red-panel {
-  background: #e38065;
-  border-right: 2px solid #8b3219;
-}
-.text-center {
+  background: #fff;
+  border-top: 3px solid #3c8fbd;
+  border-bottom: 2px solid #ccc;
+  padding: 1em 0.5em;
   text-align: center;
 }
-.todoList {
-  padding: 0.75em 0 0.75em 1em;
-  border-bottom: 1px solid #eaa08b;
-  -webkit-transition: 0.2s all ease;
-          transition: 0.2s all ease;
+header * {
+  display: inline-block;
+  vertical-align: middle;
 }
-.todoList:first-child {
-  border-top: 1px solid #eaa08b;
+header .logo {
+  display: inline-block;
+  font-size: 1.25em;
+  margin: 0;
+  -webkit-transition: 0.25s all ease;
+          transition: 0.25s all ease;
+  text-align: center;
 }
-.todoList:hover {
-  background: #d04a26;
-  cursor: pointer;
-  padding-left: 1.5em;
+header .logo * {
+  display: inline-block;
+  vertical-align: middle;
 }
-.todoList .name {
-  font-weight: bold;
-  margin: 0.5em 0;
+header .logo:hover {
+  cursor: default;
 }
-/* Animaciones */
-.fadeIn.ng-enter {
-  -webkit-animation: fadeInUp 0.5s;
-          animation: fadeInUp 0.5s;
+header .logo:hover .logo-text {
+  letter-spacing: 5px;
 }
-.fadeIn.ng-leave {
-  -webkit-animation: fadeOutUp 0.5s;
-          animation: fadeOutUp 0.5s;
+header .logo .logo-image {
+  height: 2em;
+  width: 2em;
+}
+header .logo .logo-text {
+  padding-left: 0.5em;
+  -webkit-transition: 0.25s all ease;
+          transition: 0.25s all ease;
 }

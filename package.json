@@ -1,7 +1,7 @@
 {
   "name": "cherno-alpha",
   "version": "0.0.1",
-  "description": "ToDo list hecha con AngularJS. Mobile first. Y todas esas cosas que me gustan",
+  "description": "ToDo list hecha con AngularJS  todas esas cosas que me gustan",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
