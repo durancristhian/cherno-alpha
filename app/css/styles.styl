@@ -1,6 +1,12 @@
 /* AnimateCSS */
 @import "../../bower_components/animate.css/animate.min.css"
 
+/* ngDialog */
+@import "../../bower_components/ngDialog/css/ngDialog.min.css"
+
+/* ngDialog CUSTOM THEME */
+@import "../../css/ngDialog-MyCustomTheme.css"
+
 /* PureCSS */
 @import "../../bower_components/pure/pure-min.css"
 
@@ -14,6 +20,7 @@ blue = darken(blueLight, 25%)
 gray = #F9F9F9
 grayDark = #CCC
 grayMedium = #F2F2F4
+green = #2ecc71
 white = #fff
 
 /* Mixins */
@@ -22,6 +29,14 @@ AlignChilds(_childsAlign, _verticalAlign)
 	*
 		display inline-block
 		vertical-align _verticalAlign
+
+BuildButton(_color)
+	background _color
+	border 1px solid darken(_color, 25%)
+	Transition()
+
+	&:hover
+		background darken(_color, 10%)
 
 Transition()
 	transition .25s all ease
@@ -36,13 +51,35 @@ body
 	min-height 500px
 	min-width 768px
 
+.pure-g [class *="pure-u"]
+	font-family: 'Arimo', sans-serif;
+	font-size 20px
+	letter-spacing 2px
+
 .container
 	padding .75em .5em
+
+/* Buttons */
+.button
+	border-radius 2px
+	color white
+	display block
+	font-weight bold
+	margin .5em
+	padding .75em .5em
+	text-shadow 1px 1px 1px rgba(0, 0, 0, .25)
+	AlignChilds(center, middle)
+
+	&.green
+		BuildButton(green)
+
+	.icon
+		margin-right 1em
 
 /* Header */
 header
 	background white
-	border-top 3px solid blue
+	border-top 2px solid blue
 	border-bottom 2px solid grayDark
 	padding 1em .5em
 	AlignChilds(center, middle)
@@ -58,12 +95,37 @@ header
 			cursor default
 
 			.logo-text
-				letter-spacing 5px
+				letter-spacing 10px
 
 		.logo-image
 			height 2em
 			width 2em
 
 		.logo-text
+			letter-spacing 5px
 			padding-left .5em
 			Transition()
+
+/* Panels */
+.left-panel
+	padding 1em
+
+	.todoLists-container
+		padding 2em .5em
+
+		.todoList
+			background white
+			border 1px solid grayDark
+			border-radius 2px
+			margin .5em 0
+			padding 1em
+
+			&:hover
+				cursor pointer
+
+				.name
+					padding-left 1em
+
+			.name
+				font-weight bold
+				Transition()
