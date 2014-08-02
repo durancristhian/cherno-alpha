@@ -1,9 +1,5 @@
 /* AnimateCSS */
 @import "../../bower_components/animate.css/animate.min.css";
-/* ngDialog */
-@import "../../bower_components/ngDialog/css/ngDialog.min.css";
-/* ngDialog CUSTOM THEME */
-@import "../../css/ngDialog-MyCustomTheme.css";
 /* PureCSS */
 @import "../../bower_components/pure/pure-min.css";
 /* Icons */
@@ -14,19 +10,46 @@
 body {
   background: #f9f9f9;
   color: #666;
-  font-family: 'Arimo', sans-serif;
+  font-family: sans-serif;
   font-size: 20px;
   letter-spacing: 2px;
   min-height: 500px;
   min-width: 768px;
 }
+input {
+  color: #3c8fbd;
+  font-family: sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  outline: none;
+  padding: 0.5em;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+}
 .pure-g [class *="pure-u"] {
-  font-family: 'Arimo', sans-serif;
+  font-family: sans-serif;
   font-size: 20px;
   letter-spacing: 2px;
 }
-.container {
-  padding: 0.75em 0.5em;
+.2x {
+  font-size: 2em;
+}
+.bold {
+  font-weight: bold;
+}
+.text-center {
+  text-align: center;
+}
+.title {
+  font-size: 1.25em;
+  font-style: italic;
+  font-weight: bold;
+}
+.underline {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.25em;
 }
 /* Buttons */
 .button {
@@ -58,8 +81,8 @@ body {
 /* Header */
 header {
   background: #fff;
-  border-top: 2px solid #3c8fbd;
-  border-bottom: 2px solid #ccc;
+  border-top: 3px solid #3c8fbd;
+  border-bottom: 1px solid #ccc;
   padding: 1em 0.5em;
   text-align: center;
 }
@@ -99,24 +122,49 @@ header .logo .logo-text {
 .left-panel {
   padding: 1em;
 }
-.left-panel .todoLists-container {
-  padding: 2em 0.5em;
+.left-panel .panel-row {
+  padding: 0 0.5em 1em;
 }
-.left-panel .todoLists-container .todoList {
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 2px;
-  margin: 0.5em 0;
-  padding: 1em;
-}
-.left-panel .todoLists-container .todoList:hover {
-  cursor: pointer;
-}
-.left-panel .todoLists-container .todoList:hover .name {
-  padding-left: 1em;
-}
-.left-panel .todoLists-container .todoList .name {
-  font-weight: bold;
+.left-panel .panel-row .todoList {
+  border-left: 5px solid #f9f9f9;
+  padding: 0.25em 0;
+  margin-bottom: 1em;
   -webkit-transition: 0.25s all ease;
           transition: 0.25s all ease;
+}
+.left-panel .panel-row .todoList:hover {
+  border-left: 5px solid #3c8fbd;
+  cursor: pointer;
+}
+.left-panel .panel-row .todoList:hover .name {
+  padding-left: 2em;
+}
+.left-panel .panel-row .todoList.show-true {
+  border-left: 5px solid #c0392b;
+}
+.left-panel .panel-row .todoList .name {
+  padding-left: 0.5em;
+  -webkit-transition: 0.25s all ease;
+          transition: 0.25s all ease;
+}
+.left-panel .panel-row .todoList .percentage {
+  display: block;
+  font-weight: bold;
+  text-align: right;
+}
+.right-panel {
+  margin: 1em 1em 1em 2.5em;
+}
+.right-panel .todoListDashboard {
+  background: #fff;
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+}
+.right-panel .todoListDashboard.ng-enter {
+  -webkit-animation: fadeInUp 0.5s;
+          animation: fadeInUp 0.5s;
+}
+.right-panel .todoListDashboard.ng-leave {
+  opacity: 0;
 }

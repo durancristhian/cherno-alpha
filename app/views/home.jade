@@ -3,22 +3,28 @@ extend layout
 block header
 	header.container
 		h1.logo
-			img.logo-image(src="../../assets/logo.png", alt="logo")
+			img.logo-image(src="../../assets/logo.png" alt="logo")
 			span.logo-text cherno-alpha
 
+block content
 	div(ng-app="myApp")
-		.pure-g(ng-controller="myAppController", ng-init="init()")
+		.pure-g(ng-controller="myAppController" ng-init="init()")
 			.pure-u-8-24
 				.left-panel
-					a(href="#" class="button green" ng-click="addTodoList()")
-						span.icon.icon-plus
-						span Agregar tarea
-					.todoLists-container
-						div(ng-repeat="todoList in storage.todoLists" class="todoList")
-							span.name {{todoList.name}}
+					.panel-row
+						form(ng-submit="addTodoList()")
+							input(type="text" placeholder="Crea una lista" ng-model="newTodoListName")
+					.panel-row(ng-show="storage.todoLists.length")
+						p.title.underline.bold Mis listas
+						div(class="todoList pure-g show-{{todoList.active}}"
+							ng-repeat="todoList in storage.todoLists"
+							ng-click="showTodoList(todoList)")
+							.pure-u-19-24
+								span.name {{todoList.name}}
+							.pure-u-5-24(ng-show="showPercentage(todoList) !== false")
+								span.percentage {{showPercentage(todoList)}}%
 			.pure-u-16-24
-				.container
-
-		script(type="text/ng-template", id="addTodoListTemplate")
-			div.ngdialog-theme-plain
-				p Escribe el nombre de tu lista
+				.right-panel
+					div(ng-repeat="todoList in storage.todoLists | filter: {active: true}" class="todoListDashboard pure-g")
+						.pure-u-24-24
+							p.title.2x.text-center {{todoList.name}}

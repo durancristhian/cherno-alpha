@@ -1,12 +1,6 @@
 /* AnimateCSS */
 @import "../../bower_components/animate.css/animate.min.css"
 
-/* ngDialog */
-@import "../../bower_components/ngDialog/css/ngDialog.min.css"
-
-/* ngDialog CUSTOM THEME */
-@import "../../css/ngDialog-MyCustomTheme.css"
-
 /* PureCSS */
 @import "../../bower_components/pure/pure-min.css"
 
@@ -21,6 +15,7 @@ gray = #F9F9F9
 grayDark = #CCC
 grayMedium = #F2F2F4
 green = #2ecc71
+red = #c0392b
 white = #fff
 
 /* Mixins */
@@ -29,6 +24,10 @@ AlignChilds(_childsAlign, _verticalAlign)
 	*
 		display inline-block
 		vertical-align _verticalAlign
+
+ApplyBorder(color)
+	border 1px solid color
+	border-radius 2px
 
 BuildButton(_color)
 	background _color
@@ -45,19 +44,45 @@ Transition()
 body
 	background gray
 	color black
-	font-family: 'Arimo', sans-serif;
+	font-family: sans-serif;
 	font-size 20px
 	letter-spacing 2px
 	min-height 500px
 	min-width 768px
 
+input
+	color blue
+	font-family: sans-serif;
+	font-size 20px
+	font-weight bold
+	letter-spacing 2px
+	outline none
+	padding .5em
+	width 100%
+	ApplyBorder(grayDark)
+
 .pure-g [class *="pure-u"]
-	font-family: 'Arimo', sans-serif;
+	font-family: sans-serif;
 	font-size 20px
 	letter-spacing 2px
 
-.container
-	padding .75em .5em
+.2x
+	font-size 2em
+
+.bold
+	font-weight bold
+
+.text-center
+	text-align center
+
+.title
+	font-size 1.25em
+	font-style italic
+	font-weight bold
+
+.underline
+	border-bottom 1px solid grayDark
+	padding-bottom .25em
 
 /* Buttons */
 .button
@@ -79,8 +104,8 @@ body
 /* Header */
 header
 	background white
-	border-top 2px solid blue
-	border-bottom 2px solid grayDark
+	border-top 3px solid blue
+	border-bottom 1px solid grayDark
 	padding 1em .5em
 	AlignChilds(center, middle)
 
@@ -110,22 +135,44 @@ header
 .left-panel
 	padding 1em
 
-	.todoLists-container
-		padding 2em .5em
+	.panel-row
+		padding 0 .5em 1em
 
 		.todoList
-			background white
-			border 1px solid grayDark
-			border-radius 2px
-			margin .5em 0
-			padding 1em
+			border-left 5px solid gray
+			padding .25em 0
+			margin-bottom 1em
+			Transition()
 
 			&:hover
+				border-left 5px solid blue
 				cursor pointer
 
 				.name
-					padding-left 1em
+					padding-left 2em
+
+			&.show-true
+				border-left 5px solid red
 
 			.name
-				font-weight bold
+				padding-left .5em
 				Transition()
+
+			.percentage
+				display block
+				font-weight bold
+				text-align right
+
+.right-panel
+	margin 1em 1em 1em 2.5em
+
+	.todoListDashboard
+		background white
+		padding 1em
+		ApplyBorder(grayDark)
+
+		&.ng-enter
+			animation fadeInUp .5s
+
+		&.ng-leave
+			opacity 0
