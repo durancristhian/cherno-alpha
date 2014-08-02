@@ -20,7 +20,8 @@ white = #fff
 
 /* Mixins */
 AlignChilds(_childsAlign, _verticalAlign)
-	text-align center
+	text-align _childsAlign
+
 	*
 		display inline-block
 		vertical-align _verticalAlign
@@ -51,10 +52,9 @@ body
 	min-width 768px
 
 input
-	color blue
+	color black
 	font-family: sans-serif;
 	font-size 20px
-	font-weight bold
 	letter-spacing 2px
 	outline none
 	padding .5em
@@ -65,9 +65,6 @@ input
 	font-family: sans-serif;
 	font-size 20px
 	letter-spacing 2px
-
-.2x
-	font-size 2em
 
 .bold
 	font-weight bold
@@ -80,23 +77,37 @@ input
 	font-style italic
 	font-weight bold
 
+	&.large
+		font-size 2em
+
 .underline
 	border-bottom 1px solid grayDark
 	padding-bottom .25em
 
 /* Buttons */
 .button
+	background grayDark
+	border 1px solid darken(grayDark, 25%)
 	border-radius 2px
 	color white
 	display block
-	font-weight bold
+	font-size .85em
 	margin .5em
 	padding .75em .5em
 	text-shadow 1px 1px 1px rgba(0, 0, 0, .25)
-	AlignChilds(center, middle)
+	AlignChilds(left, middle)
+
+	&:hover
+		background darken(grayDark, 10%)
+
+	&.grayDark
+		BuildButton(darken(grayDark, 25%))
 
 	&.green
 		BuildButton(green)
+
+	&.red
+		BuildButton(red)
 
 	.icon
 		margin-right 1em
@@ -152,7 +163,7 @@ header
 					padding-left 2em
 
 			&.show-true
-				border-left 5px solid red
+				border-left 5px solid green
 
 			.name
 				padding-left .5em
@@ -172,7 +183,13 @@ header
 		ApplyBorder(grayDark)
 
 		&.ng-enter
-			animation fadeInUp .5s
+			animation fadeIn .5s
 
 		&.ng-leave
-			opacity 0
+			display none
+
+		.actions .button
+			margin 0 0 1em
+
+		.main-title
+			margin-top 0

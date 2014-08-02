@@ -17,10 +17,9 @@ body {
   min-width: 768px;
 }
 input {
-  color: #3c8fbd;
+  color: #666;
   font-family: sans-serif;
   font-size: 20px;
-  font-weight: bold;
   letter-spacing: 2px;
   outline: none;
   padding: 0.5em;
@@ -33,9 +32,6 @@ input {
   font-size: 20px;
   letter-spacing: 2px;
 }
-.2x {
-  font-size: 2em;
-}
 .bold {
   font-weight: bold;
 }
@@ -47,24 +43,41 @@ input {
   font-style: italic;
   font-weight: bold;
 }
+.title.large {
+  font-size: 2em;
+}
 .underline {
   border-bottom: 1px solid #ccc;
   padding-bottom: 0.25em;
 }
 /* Buttons */
 .button {
+  background: #ccc;
+  border: 1px solid #999;
   border-radius: 2px;
   color: #fff;
   display: block;
-  font-weight: bold;
+  font-size: 0.85em;
   margin: 0.5em;
   padding: 0.75em 0.5em;
   text-shadow: 1px 1px 1px rgba(0,0,0,0.25);
-  text-align: center;
+  text-align: left;
 }
 .button * {
   display: inline-block;
   vertical-align: middle;
+}
+.button:hover {
+  background: #b8b8b8;
+}
+.button.grayDark {
+  background: #999;
+  border: 1px solid #737373;
+  -webkit-transition: 0.25s all ease;
+          transition: 0.25s all ease;
+}
+.button.grayDark:hover {
+  background: #8a8a8a;
 }
 .button.green {
   background: #2ecc71;
@@ -74,6 +87,15 @@ input {
 }
 .button.green:hover {
   background: #29b866;
+}
+.button.red {
+  background: #c0392b;
+  border: 1px solid #902b20;
+  -webkit-transition: 0.25s all ease;
+          transition: 0.25s all ease;
+}
+.button.red:hover {
+  background: #ad3327;
 }
 .button .icon {
   margin-right: 1em;
@@ -140,7 +162,7 @@ header .logo .logo-text {
   padding-left: 2em;
 }
 .left-panel .panel-row .todoList.show-true {
-  border-left: 5px solid #c0392b;
+  border-left: 5px solid #2ecc71;
 }
 .left-panel .panel-row .todoList .name {
   padding-left: 0.5em;
@@ -162,9 +184,15 @@ header .logo .logo-text {
   border-radius: 2px;
 }
 .right-panel .todoListDashboard.ng-enter {
-  -webkit-animation: fadeInUp 0.5s;
-          animation: fadeInUp 0.5s;
+  -webkit-animation: fadeIn 0.5s;
+          animation: fadeIn 0.5s;
 }
 .right-panel .todoListDashboard.ng-leave {
-  opacity: 0;
+  display: none;
+}
+.right-panel .todoListDashboard .actions .button {
+  margin: 0 0 1em;
+}
+.right-panel .todoListDashboard .main-title {
+  margin-top: 0;
 }

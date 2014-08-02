@@ -4,29 +4,13 @@ myApp.controller("myAppController", function ($scope, $localStorage) {
 
 	$scope.init = function () {
 
-		$scope.storage = $localStorage.$reset({
-			todoLists: [{
-				active: false,
-				name: "Departamento",
-				tasks: [{
-					description: "Llamar a Mónica",
-					done: true
-				}, {
-					description: "Ir a ver el departamento",
-					done: true
-				}]
-			}, {
-				active: false,
-				name: "3p",
-				tasks: [{
-					description: "Llamar a Ricky",
-					done: false
-				}]
-			}, {
-				active: false,
-				name: "Vacaciones",
-				tasks: []
-			}]
+		$scope.storage = $localStorage.$default({
+			todoLists: []
+		});
+
+		angular.forEach($scope.storage.todoLists, function (list) {
+
+			list.active = false;
 		});
 	};
 
@@ -83,5 +67,10 @@ myApp.controller("myAppController", function ($scope, $localStorage) {
 		});
 
 		todoList.active = !todoList.active;
+	};
+
+	$scope.deleteTodoList = function (index) {
+
+		$scope.storage.todoLists.splice(index, 1);
 	};
 });
