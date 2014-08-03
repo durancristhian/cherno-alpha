@@ -1,0 +1,14 @@
+{
+	"name": "cherno-alpha",
+	"description": "ToDo list hecha con AngularJS y todas esas cosas que me gustan",
+	"version": "0.1",
+	"manifest_version": 2,
+	"app": {
+		"background": {
+			"scripts": ["chrome-extension/cherno-alpha.js"]
+		}
+	},
+	"icons": {
+		"128": "chrome-extension/logo-128.png"
+	}
+}

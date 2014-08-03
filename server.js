@@ -14,7 +14,7 @@ server.set('view engine', 'jade');
 server.use(favicon(__dirname + '/app/assets/favicon.ico'));
 
 // Archivos estáticos
-server.use(express.static(__dirname + '/app'));
+server.use(express.static(__dirname + '/'));
 
 // Módulo que contiene las rutas
 routesController(server);

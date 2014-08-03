@@ -3,14 +3,11 @@ html
 		title cherno-alpha
 		meta(name="viewport" content="width=device-width, user-scalable=no")
 		meta(http-equiv="content-type", content="charset=UTF-8")
-		if env == "dev"
-			link(rel='stylesheet', href='public/css/styles.css')
-		else
-			link(rel='stylesheet', href='public/css/styles.min.css')
-		script(src="bower_components/angular/angular.min.js")
-		script(src="bower_components/ngstorage/ngStorage.min.js")
-		script(src="bower_components/angular-animate/angular-animate.min.js")
-		script(src="js/app.js")
+		link(rel='stylesheet', href='/app/public/css/styles.min.css')
+		script(src="/app/bower_components/angular/angular.min.js")
+		script(src="/app/bower_components/ngstorage/ngStorage.min.js")
+		script(src="/app/bower_components/angular-animate/angular-animate.min.js")
+		script(src="/app/js/app.js")
 	body
 		block header
 		block content

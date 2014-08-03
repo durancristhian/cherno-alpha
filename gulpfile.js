@@ -5,7 +5,8 @@ var gulp = require('gulp'),
 	notify = require('gulp-notify'),
 	rename = require('gulp-rename'),
 	stylus = require('gulp-stylus'),
-	watch = require('gulp-watch');
+	watch = require('gulp-watch'),
+	jade = require('gulp-jade');
 
 gulp.task('styles', ["clean"], function() {
 	return gulp.src(['./app/css/styles.styl'])
@@ -22,10 +23,18 @@ gulp.task('clean', function() {
 		.pipe(clean());
 });
 
+gulp.task('compileHTML', function() {
+
+	// Compile de html for the app
+	gulp.src('./app/views/home.jade')
+	.pipe(jade())
+	.pipe(gulp.dest('./chrome-extension'))
+});
+
 gulp.task('watch', function() {
 
 	// Watch .styl files
 	gulp.watch('./app/css/*.styl', ['styles']);
 });
 
-gulp.task('default', ["watch"]);
+gulp.task('default', ["watch", "compileHTML"]);

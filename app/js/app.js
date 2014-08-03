@@ -52,7 +52,7 @@ myApp.controller("myAppController", function ($scope, $localStorage) {
 		} else {
 
 			// There is no tasks
-			return false;
+			return 0;
 		}
 	};
 
