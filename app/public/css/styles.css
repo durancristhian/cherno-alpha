@@ -10,15 +10,15 @@
 body {
   background: #f9f9f9;
   color: #666;
-  font-family: sans-serif;
+  font-family: Helvetica;
   font-size: 20px;
   letter-spacing: 2px;
-  min-height: 500px;
-  min-width: 768px;
+  min-height: 600px;
+  min-width: 1024px;
 }
 input {
   color: #666;
-  font-family: sans-serif;
+  font-family: Helvetica;
   font-size: 20px;
   letter-spacing: 2px;
   outline: none;
@@ -28,7 +28,7 @@ input {
   border-radius: 2px;
 }
 .pure-g [class *="pure-u"] {
-  font-family: sans-serif;
+  font-family: Helvetica;
   font-size: 20px;
   letter-spacing: 2px;
 }
@@ -38,9 +38,15 @@ input {
 .text-center {
   text-align: center;
 }
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
 .title {
+  display: block;
   font-size: 1.25em;
-  font-style: italic;
   font-weight: bold;
 }
 .title.large {
@@ -69,6 +75,15 @@ input {
 }
 .button:hover {
   background: #b8b8b8;
+}
+.button.blue {
+  background: #3c8fbd;
+  border: 1px solid #2d6b8e;
+  -webkit-transition: 0.25s all ease;
+          transition: 0.25s all ease;
+}
+.button.blue:hover {
+  background: #3681aa;
 }
 .button.grayDark {
   background: #999;
@@ -165,7 +180,7 @@ header .logo .logo-text {
   border-left: 5px solid #2ecc71;
 }
 .left-panel .panel-row .todoList .name {
-  padding-left: 0.5em;
+  padding-left: 1em;
   -webkit-transition: 0.25s all ease;
           transition: 0.25s all ease;
 }
@@ -173,6 +188,9 @@ header .logo .logo-text {
   display: block;
   font-weight: bold;
   text-align: right;
+}
+.left-panel .panel-row .todoList .percentage.completed {
+  color: #2ecc71;
 }
 .right-panel {
   margin: 1em 1em 1em 2.5em;
@@ -184,15 +202,68 @@ header .logo .logo-text {
   border-radius: 2px;
 }
 .right-panel .todoListDashboard.ng-enter {
-  -webkit-animation: fadeIn 0.5s;
-          animation: fadeIn 0.5s;
+  -webkit-animation: fadeInUp 0.5s;
+          animation: fadeInUp 0.5s;
 }
 .right-panel .todoListDashboard.ng-leave {
   display: none;
 }
+.right-panel .todoListDashboard .actions {
+  margin-left: 1.5em;
+}
+.right-panel .todoListDashboard .actions h4 {
+  margin: 1em 0;
+}
+.right-panel .todoListDashboard .actions h4:first-child {
+  margin-top: 0;
+}
 .right-panel .todoListDashboard .actions .button {
   margin: 0 0 1em;
+  padding: 0.75em 1em;
 }
 .right-panel .todoListDashboard .main-title {
   margin-top: 0;
+}
+.right-panel .todoListDashboard .tasks .task {
+  margin-bottom: 1em;
+}
+.right-panel .todoListDashboard .tasks .task:hover {
+  cursor: pointer;
+}
+.right-panel .todoListDashboard .tasks .task p {
+  margin: 0;
+}
+.right-panel .todoListDashboard .tasks .task p.status-true {
+  color: #ccc;
+  text-decoration: line-through;
+}
+.right-panel .todoListDashboard .tasks .task span {
+  font-family: "icons";
+}
+.right-panel .todoListDashboard .tasks .task span.status-false:before {
+  content: "\e739";
+}
+.right-panel .todoListDashboard .tasks .task span.status-true:before {
+  color: #ccc;
+  content: "\e738";
+}
+.right-panel .todoListDashboard .tasks .task .icon-close {
+  display: inline-block;
+  -webkit-transition: 0.25s all ease;
+          transition: 0.25s all ease;
+}
+.right-panel .todoListDashboard .tasks .task .icon-close:hover {
+  color: #c0392b;
+  -webkit-transform: scale(1.25);
+      -ms-transform: scale(1.25);
+          transform: scale(1.25);
+}
+.right-panel .todoListDashboard .tasks .tasks-list {
+  margin: 1.5em 0;
+}
+.right-panel .todoListDashboard .tasks .tasks-list :last-child {
+  margin-bottom: 0;
+}
+.right-panel .todoListDashboard .tasks .title {
+  margin-bottom: 1em;
 }

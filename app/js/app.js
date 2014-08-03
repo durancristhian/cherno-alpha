@@ -69,8 +69,37 @@ myApp.controller("myAppController", function ($scope, $localStorage) {
 		todoList.active = !todoList.active;
 	};
 
-	$scope.deleteTodoList = function (index) {
+	$scope.deleteTodoList = function (todoList) {
 
+		var index = $scope.storage.todoLists.indexOf(todoList);
 		$scope.storage.todoLists.splice(index, 1);
+	};
+
+	$scope.addTask = function (todoList) {
+
+		var newTaskDescription = $scope.newTaskDescription;
+
+		if(newTaskDescription) {
+
+			todoList.tasks.push({
+				description: newTaskDescription,
+				done: false
+			});
+
+			$scope.newTaskDescription = "";
+		}
+	};
+
+	$scope.deleteTask = function (tasks, index) {
+
+		tasks.splice(index, 1);
+	};
+
+	$scope.changeStatus = function (tasks, status) {
+
+		angular.forEach(tasks, function (task) {
+
+			task.done = status;
+		});
 	};
 });
