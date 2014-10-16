@@ -1,11 +1,8 @@
 {
   "name": "cherno-alpha",
   "version": "0.0.1",
-  "description": "ToDo list hecha con AngularJS y todas esas cosas que me gustan",
+  "description": "ToDo list hecha con AngularJS, local Storage, ngAnimate y todas esas cosas que me gustan",
   "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/durancristhian/cherno-alpha.git"
@@ -31,7 +28,6 @@
     "gulp-stylus": "^1.1.0",
     "gulp-notify": "^1.4.0",
     "gulp-minify-css": "^0.3.7",
-    "gulp-rename": "^1.2.0",
-    "gulp-jade": "^0.7.0"
+    "gulp-rename": "^1.2.0"
   }
 }
