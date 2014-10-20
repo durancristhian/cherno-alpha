@@ -1,11 +1,11 @@
-Cherno-Alpha
+cherno-alpha
 ----------
 
 > ToDo list hecha con AngularJS, local Storage, ngAnimate y todas esas cosas que me gustan
 
 Screenshot
 ----------
-![MUG](https://raw.githubusercontent.com/durancristhian/cherno-alpha/master/screenshots/website.png)
+![cherno-alpha](https://raw.githubusercontent.com/durancristhian/cherno-alpha/master/screenshots/website.png)
 
 License
 ----------
