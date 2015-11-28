@@ -16,6 +16,7 @@ var config = {
       path.join(appDir, "js", "**", "*.js"),
       path.join(appDir, "views", "**", "*.jade")
     ],
+    mainServerFile: "server.js",
     publicDir: path.join(appDir, "public"),
     publicDirFiles: path.join(appDir, "public", "**", "*.*"),
     serverFiles: [
@@ -44,7 +45,7 @@ gulp.task("nodemon", function (cb) {
     var called = false;
     var nodemon = plugins.nodemon({
         // starting point of our server/application
-        script: config.serverFiles,
+        script: config.mainServerFile,
         // watch server file(s) that require server restart on change
         watch: config.serverFiles
     });
