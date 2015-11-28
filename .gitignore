@@ -1,8 +1,4 @@
+# Dependencies directory
+node_modules
 # Logs
 *.log
-
-# Dependency directory
-node_modules
-
-# User Environment Variables
-/.project

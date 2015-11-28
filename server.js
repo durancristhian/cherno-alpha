@@ -1,20 +1,24 @@
-var express = require('express'),
-	stylus = require('stylus'),
-	nib = require('nib'),
-	favicon = require('serve-favicon');
-
+var compression = require("compression");
+var express = require("express");
+var favicon = require("serve-favicon");
+var path = require("path");
+var paths = {
+  favicon: path.join(__dirname, "app", "assets", "favicon.ico"),
+  routesController: path.join(__dirname, "app", "controllers", "routesController"),
+  staticFiles: path.join(__dirname, "app"),
+  views: path.join(__dirname, "app", "views")
+};
+var routesController = require(paths.routesController);
 var server = express();
 
-var routesController = require("./app/controllers/routesController");
+server.set("views", paths.views);
+server.set("view engine", "jade");
+server.set("port", process.env.PORT || 3000);
 
-server.set('views', __dirname + '/app/views');
-server.set('view engine', 'jade');
-
-server.use(favicon(__dirname + '/app/assets/favicon.ico'));
-
-server.use(express.static(__dirname + '/'));
+server.use(favicon(paths.favicon));
+server.use(express.static(paths.staticFiles));
+server.use(compression());
 
 routesController(server);
 
-server.listen(process.env.PORT || 2350);
-console.log('Servidor corriendo en http://localhost:2350');
+server.listen(server.get("port"));
