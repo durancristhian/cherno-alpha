@@ -1,6 +1,6 @@
 {
   "name": "cherno-alpha",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "ToDo list built with AngularJS, local storage and ngAnimate",
   "main": "server.js",
   "scripts": {
