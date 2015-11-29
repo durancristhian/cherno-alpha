@@ -1,14 +1,14 @@
 {
   "name": "cherno-alpha",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "(FINISHED) ToDo list built with AngularJS, ngAnimate, express and jade",
   "scripts": {
     "add": "git add .",
-    "build": "gulp build:css",
+    "build": "gulp build",
     "bump": "bump package.json -M -y",
     "commit": "git-cz",
     "push": "git push origin master",
-    "start": "gulp build:css && gulp server",
+    "start": "gulp build && gulp server",
     "upload": "npm run build && npm run bump && npm run add && npm run commit && npm run push"
   },
   "repository": {
@@ -36,6 +36,7 @@
     "del": "2.1.0",
     "gulp": "3.9.0",
     "gulp-autoprefixer": "3.1.0",
+    "gulp-jade": "1.1.0",
     "gulp-load-plugins": "1.1.0",
     "gulp-minify-css": "1.2.1",
     "gulp-nodemon": "2.0.4",

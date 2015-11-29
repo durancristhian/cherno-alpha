@@ -14,7 +14,12 @@ var config = {
       path.join(appDir, "js", "**", "*.js"),
       path.join(appDir, "views", "**", "*.jade")
     ],
-    reloadDelay: 500
+    reloadDelay: 1000
+  },
+  jade: {
+    filesToWatch: path.join(appDir, "views", "*.jade"),
+    indexHTML: path.join(appDir, "index.html"),
+    mainFile: path.join(appDir, "views", "home.jade")
   },
   nodemon: {
     filesToWatch: [
@@ -28,7 +33,15 @@ var config = {
   stylusMainFile: path.join(appDir, "css", "styles.styl")
 };
 
-gulp.task("build:css", ["clean"], function () {
+function restartClient () {
+  setTimeout(function () {
+    browserSync.reload();
+  }, config.browserSync.reloadDelay);
+}
+
+gulp.task("build", ["build:html", "build:css"]);
+
+gulp.task("build:css", ["clean:css"], function () {
   return gulp.src(config.stylusMainFile)
     .pipe(plugins.stylus())
     .pipe(plugins.autoprefixer("last 2 version"))
@@ -37,8 +50,19 @@ gulp.task("build:css", ["clean"], function () {
     .pipe(gulp.dest(config.publicDir));
 });
 
-gulp.task("clean", function() {
+gulp.task("build:html", ["clean:html"], function () {
+  return gulp.src(config.jade.mainFile)
+    .pipe(plugins.jade({}))
+    .pipe(plugins.rename("index.html"))
+    .pipe(gulp.dest(appDir));
+});
+
+gulp.task("clean:css", function() {
   return del(config.publicDirFiles);
+});
+
+gulp.task("clean:html", function() {
+  return del(config.jade.indexHTML);
 });
 
 gulp.task("nodemon", function (cb) {
@@ -55,11 +79,7 @@ gulp.task("nodemon", function (cb) {
     }
   });
 
-  nodemon.on("restart", function onRestart() {
-    setTimeout(function reload() {
-      browserSync.reload();
-    }, config.browserSync.reloadDelay);
-  });
+  nodemon.on("restart", restartClient);
 
   return nodemon;
 });
@@ -94,5 +114,6 @@ gulp.task("server", ["nodemon", "watch"], function () {
 });
 
 gulp.task("watch", function () {
-  gulp.watch(config.stylusMainFile, ["build:css"], browserSync.reload);
+  gulp.watch(config.jade.filesToWatch, ["build:html"], restartClient);
+  gulp.watch(config.stylusMainFile, ["build:css"], restartClient);
 });
