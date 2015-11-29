@@ -1,6 +1,6 @@
 {
   "name": "cherno-alpha",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "description": "(FINISHED) ToDo list built with AngularJS, ngAnimate, express and jade",
   "scripts": {
     "add": "git add .",
@@ -8,7 +8,7 @@
     "bump": "bump package.json -M -y",
     "commit": "git-cz",
     "deploy": "npm run build && npm run bump && npm run add && npm run commit && npm run push && npm run github",
-    "github": "gh-pages -d public",
+    "github": "gh-pages -d app",
     "push": "git push origin master",
     "start": "gulp build && gulp server"
   },

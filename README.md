@@ -18,7 +18,7 @@ npm run deploy
 ## ToDo list
 
 - [X] ~~Preparing the ground: Compile home.jade to static html. That would allow me to push the ```./app``` directory to gh-pages~~
-- [ ] ~~Going live: modify the build process (new gulp task + npm script) and publish to gh-pages~~
+- [X] ~~Going live: modify the build process (new gulp task + npm script) and publish to gh-pages~~
 
 ## Screenshots
 
