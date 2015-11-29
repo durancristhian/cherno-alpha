@@ -1,0 +1,58 @@
+extend layout
+
+block header
+	header.container
+		h1.logo
+			img.logo-image(src="img/logo.png" alt="logo")
+			span.logo-text cherno-alpha
+
+block content
+	div(ng-app="myApp")
+		.pure-g(ng-controller="myAppController" ng-init="init()")
+			.pure-u-7-24
+				.left-panel
+					.panel-row
+						form(ng-submit="addTodoList()")
+							input(type="text" placeholder="Add a list" ng-model="newTodoListName")
+					.panel-row(ng-show="storage.todoLists.length")
+						h3.title.underline.bold My lists
+						div(class="todo-list pure-g show-{{todoList.active}}"
+							ng-repeat="todoList in storage.todoLists"
+							ng-click="showTodoList(todoList)")
+							.pure-u-19-24
+								span.name {{todoList.name}}
+							.pure-u-5-24(ng-show="showPercentage(todoList) !== false")
+								span.percentage(ng-class="{completed: showPercentage(todoList) == 100}") {{showPercentage(todoList)}}%
+			.pure-u-17-24
+				.right-panel
+					div(ng-repeat="todoList in storage.todoLists | filter: {active: true}" class="todo-list-dashboard")
+						.pure-g
+							.pure-u-15-24.tasks
+								h2.title.large.underline.text-center.main-title {{todoList.name}}
+								h3.title Tasks
+								.tasks-list
+									.div.pure-g.task(ng-repeat="task in todoList.tasks")
+										.pure-u-2-24.text-left(ng-click="task.done = !task.done")
+											span(class="icon status-{{task.done}}")
+										.pure-u-21-24(ng-click="task.done = !task.done")
+											p(class="status-{{task.done}}") {{task.description}}
+										.pure-u-1-24.text-right(ng-click="deleteTask(todoList.tasks, $index)")
+											span.icon.icon-close
+								form(ng-controller="myAppController" ng-submit="addTask(todoList)")
+									input(type="text" placeholder="Add a task" ng-model="newTaskDescription")
+							.pure-u-9-24
+								.actions
+									h4 List actions
+									a(href="" class="button red" ng-click="deleteTodoList(todoList)")
+										span.icon.icon-remove
+										span Delete
+									h4 Task actions
+									a(href="" class="button grayDark" ng-click="changeStatus(todoList.tasks, true)")
+										span.icon.icon-checkbox-checked
+										span Check all
+									a(href="" class="button grayDark" ng-click="changeStatus(todoList.tasks, false)")
+										span.icon.icon-checkbox-unchecked
+										span Uncheck all
+									a(href="" class="button blue" ng-click="todoList.tasks = []")
+										span.icon.icon-wondering
+										span Clean list

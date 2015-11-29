@@ -1,0 +1,248 @@
+@import "../bower_components/animate.css/animate.min.css"
+@import "../bower_components/pure/pure-min.css"
+@import "../css/vendor/icons.css"
+
+black = #666
+blueLight = #77B3D4
+blue = darken(blueLight, 25%)
+gray = #F9F9F9
+grayDark = #CCC
+grayMedium = #F2F2F4
+green = #2ecc71
+red = #c0392b
+white = #fff
+
+AlignChilds(_childsAlign, _verticalAlign)
+  text-align _childsAlign
+
+  *
+    display inline-block
+    vertical-align _verticalAlign
+
+ApplyBorder(color)
+  border 1px solid color
+  border-radius 2px
+
+BuildButton(_color)
+  background _color
+  border 1px solid darken(_color, 25%)
+  Transition()
+
+  &:hover
+    background darken(_color, 10%)
+
+Transition()
+  transition .25s all ease
+
+body
+  background gray
+  color black
+  font-family Helvetica
+  font-size 20px
+  letter-spacing 2px
+  min-height 600px
+  min-width 1024px
+
+input
+  color black
+  font-family Helvetica
+  font-size 20px
+  letter-spacing 2px
+  outline none
+  padding .5em
+  width 100%
+  ApplyBorder(grayDark)
+
+.pure-g [class *="pure-u"]
+  font-family Helvetica
+  font-size 20px
+  letter-spacing 2px
+
+.bold
+  font-weight bold
+
+.text-center
+  text-align center
+
+.text-left
+  text-align left
+
+.text-right
+  text-align right
+
+.title
+  display block
+  font-size 1.25em
+  font-weight bold
+
+  &.large
+    font-size 2em
+
+.underline
+  border-bottom 1px solid grayDark
+  padding-bottom .25em
+
+.button
+  background grayDark
+  border 1px solid darken(grayDark, 25%)
+  border-radius 2px
+  color white
+  display block
+  font-size .85em
+  margin .5em
+  padding .75em .5em
+  text-shadow 1px 1px 1px rgba(0, 0, 0, .25)
+  AlignChilds(left, middle)
+
+  &:hover
+    background darken(grayDark, 10%)
+
+  &.blue
+    BuildButton(blue)
+
+  &.grayDark
+    BuildButton(darken(grayDark, 25%))
+
+  &.green
+    BuildButton(green)
+
+  &.red
+    BuildButton(red)
+
+  .icon
+    margin-right 1em
+
+header
+  background white
+  border-top 3px solid blue
+  border-bottom 1px solid grayDark
+  padding 1em .5em
+  AlignChilds(center, middle)
+
+  .logo
+    display inline-block
+    font-size 1.25em
+    margin 0
+    Transition()
+    AlignChilds(center, middle)
+
+    &:hover
+      cursor default
+
+      .logo-text
+        letter-spacing 10px
+
+    .logo-image
+      height 2em
+      width 2em
+
+    .logo-text
+      letter-spacing 5px
+      padding-left .5em
+      Transition()
+
+.left-panel
+  padding 1em
+
+  .panel-row
+    padding 0 .5em 1em
+
+    .todo-list
+      border-left 5px solid gray
+      padding .25em 0
+      margin-bottom 1em
+      Transition()
+
+      &:hover
+        border-left 5px solid blue
+        cursor pointer
+
+        .name
+          padding-left 2em
+
+      &.show-true
+        border-left 5px solid green
+
+      .name
+        padding-left 1em
+        Transition()
+
+      .percentage
+        display block
+        font-weight bold
+        text-align right
+
+        &.completed
+          color green
+
+.right-panel
+  margin 1em 1em 1em 2.5em
+
+  .todo-list-dashboard
+    background white
+    padding 1em
+    ApplyBorder(grayDark)
+
+    &.ng-enter
+      animation fadeInUp .5s
+
+    &.ng-leave
+      display none
+
+    .actions
+      margin-left 1.5em
+
+      h4
+        margin 1em 0
+
+        &:first-child
+          margin-top 0
+
+      .button
+        margin 0 0 1em
+        padding 0.75em 1em
+
+    .main-title
+      margin-top 0
+
+    .tasks
+
+      .task
+        margin-bottom 1em
+
+        &:hover
+          cursor pointer
+
+        p
+          margin 0
+
+          &.status-true
+            color grayDark
+            text-decoration line-through
+
+        span
+          font-family "icons"
+
+        span.status-false:before
+          content "\e739"
+
+        span.status-true:before
+          color grayDark
+          content "\e738"
+
+        .icon-close
+          display inline-block
+          Transition()
+
+          &:hover
+            color red
+            transform scale(1.25)
+
+      .tasks-list
+        margin 1.5em 0
+
+        :last-child
+          margin-bottom 0
+
+      .title
+        margin-bottom 1em
