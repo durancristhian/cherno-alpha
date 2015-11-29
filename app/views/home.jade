@@ -3,7 +3,7 @@ extend layout
 block header
 	header.container
 		h1.logo
-			img.logo-image(src="/assets/logo.png" alt="logo")
+			img.logo-image(src="/img/logo.png" alt="logo")
 			span.logo-text cherno-alpha
 
 block content
@@ -16,7 +16,7 @@ block content
 							input(type="text" placeholder="Add a list" ng-model="newTodoListName")
 					.panel-row(ng-show="storage.todoLists.length")
 						h3.title.underline.bold My lists
-						div(class="todoList pure-g show-{{todoList.active}}"
+						div(class="todo-list pure-g show-{{todoList.active}}"
 							ng-repeat="todoList in storage.todoLists"
 							ng-click="showTodoList(todoList)")
 							.pure-u-19-24
@@ -25,7 +25,7 @@ block content
 								span.percentage(ng-class="{completed: showPercentage(todoList) == 100}") {{showPercentage(todoList)}}%
 			.pure-u-17-24
 				.right-panel
-					div(ng-repeat="todoList in storage.todoLists | filter: {active: true}" class="todoListDashboard")
+					div(ng-repeat="todoList in storage.todoLists | filter: {active: true}" class="todo-list-dashboard")
 						.pure-g
 							.pure-u-15-24.tasks
 								h2.title.large.underline.text-center.main-title {{todoList.name}}

@@ -1,105 +1,82 @@
 var myApp = angular.module("myApp", ["ngStorage", "ngAnimate"]);
 
 myApp.controller("myAppController", function ($scope, $localStorage) {
+  $scope.init = function () {
+    $scope.storage = $localStorage.$default({
+      todoLists: []
+    });
 
-	$scope.init = function () {
+    angular.forEach($scope.storage.todoLists, function (list) {
+      list.active = false;
+    });
+  };
 
-		$scope.storage = $localStorage.$default({
-			todoLists: []
-		});
+  $scope.addTodoList = function () {
+    var newTodoListName = $scope.newTodoListName;
 
-		angular.forEach($scope.storage.todoLists, function (list) {
+    if (newTodoListName) {
+      $scope.storage.todoLists.push({
+        name: newTodoListName,
+        tasks: []
+      });
 
-			list.active = false;
-		});
-	};
+      $scope.newTodoListName = "";
+    }
+  };
 
-	$scope.addTodoList = function () {
+  $scope.showPercentage = function (todoList) {
+    var tasksCount = todoList.tasks.length;
+    var doneTasks = todoList.tasks.filter(function (task) {
+      return task.done;
+    });
 
-		var newTodoListName = $scope.newTodoListName;
+    if (tasksCount > 0) {
+      if (doneTasks.length > 0) {
+        var percentage = (100 * doneTasks.length) / tasksCount;
+        return percentage.toFixed(0);
+      } else {
+        return 0;
+      }
+    } else {
+      return 0;
+    }
+  };
 
-		if(newTodoListName) {
+  $scope.showTodoList = function (todoList) {
+    angular.forEach($scope.storage.todoLists, function (list) {
+      if (list.name !== todoList.name) {
+        list.active = false;
+      }
+    });
 
-			$scope.storage.todoLists.push({
-				name: newTodoListName,
-				tasks: []
-			});
+    todoList.active = !todoList.active;
+  };
 
-			$scope.newTodoListName = "";
-		}
-	};
+  $scope.deleteTodoList = function (todoList) {
+    var index = $scope.storage.todoLists.indexOf(todoList);
+    $scope.storage.todoLists.splice(index, 1);
+  };
 
-	$scope.showPercentage = function (todoList) {
+  $scope.addTask = function (todoList) {
+    var newTaskDescription = $scope.newTaskDescription;
 
-		var tasksCount = todoList.tasks.length;
-		var doneTasks = todoList.tasks.filter(function (task) {
-			return task.done;
-		});
+    if (newTaskDescription) {
+      todoList.tasks.push({
+        description: newTaskDescription,
+        done: false
+      });
 
-		if(tasksCount > 0) {
+      $scope.newTaskDescription = "";
+    }
+  };
 
-			if(doneTasks.length > 0) {
+  $scope.deleteTask = function (tasks, index) {
+    tasks.splice(index, 1);
+  };
 
-				// Percentage of done tasks
-				var percentage = (100 * doneTasks.length) / tasksCount;
-				return percentage.toFixed(0);
-			} else {
-
-				// There is no done tasks
-				return 0;
-			}
-
-		} else {
-
-			// There is no tasks
-			return 0;
-		}
-	};
-
-	$scope.showTodoList = function (todoList) {
-
-		angular.forEach($scope.storage.todoLists, function (list) {
-
-			if(list.name !== todoList.name) {
-
-				list.active = false;
-			}
-		});
-
-		todoList.active = !todoList.active;
-	};
-
-	$scope.deleteTodoList = function (todoList) {
-
-		var index = $scope.storage.todoLists.indexOf(todoList);
-		$scope.storage.todoLists.splice(index, 1);
-	};
-
-	$scope.addTask = function (todoList) {
-
-		var newTaskDescription = $scope.newTaskDescription;
-
-		if(newTaskDescription) {
-
-			todoList.tasks.push({
-				description: newTaskDescription,
-				done: false
-			});
-
-			$scope.newTaskDescription = "";
-		}
-	};
-
-	$scope.deleteTask = function (tasks, index) {
-
-		tasks.splice(index, 1);
-	};
-
-	$scope.changeStatus = function (tasks, status) {
-
-		angular.forEach(tasks, function (task) {
-
-			task.done = status;
-		});
-	};
+  $scope.changeStatus = function (tasks, status) {
+    angular.forEach(tasks, function (task) {
+      task.done = status;
+    });
+  };
 });

@@ -1,7 +1,6 @@
 {
   "name": "cherno-alpha",
-  "description": "ToDo list built with AngularJS, local storage and ngAnimate",
-  "main": "server.js",
+  "description": "(FINISHED) ToDo list built with AngularJS, ngAnimate, express and jade",
   "authors": [
     "Cristhian Javier Duran <durancristhian@gmail.com> (https://github.com/durancristhian)"
   ],

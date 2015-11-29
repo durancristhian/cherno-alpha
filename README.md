@@ -1,12 +1,18 @@
 # cherno-alpha
 
-***(FINISHED)*** :aquarius: ToDo list built with AngularJS, local storage and ngAnimate
+***(FINISHED)*** :elephant: ToDo list built with AngularJS, ngAnimate, express and jade
 
 ## Development
 
 ```
 npm install
 npm start
+```
+
+## Uploading changes
+
+```
+npm run upload
 ```
 
 ## Screenshots

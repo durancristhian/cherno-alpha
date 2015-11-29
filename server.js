@@ -3,7 +3,7 @@ var express = require("express");
 var favicon = require("serve-favicon");
 var path = require("path");
 var paths = {
-  favicon: path.join(__dirname, "app", "assets", "favicon.ico"),
+  favicon: path.join(__dirname, "app", "img", "favicon.ico"),
   routesController: path.join(__dirname, "app", "controllers", "routesController"),
   staticFiles: path.join(__dirname, "app"),
   views: path.join(__dirname, "app", "views")

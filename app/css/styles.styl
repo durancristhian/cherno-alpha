@@ -1,13 +1,7 @@
-/* AnimateCSS */
 @import "../bower_components/animate.css/animate.min.css"
-
-/* PureCSS */
 @import "../bower_components/pure/pure-min.css"
+@import "../css/vendor/icons.css"
 
-/* Icons */
-@import "../css/icons.css"
-
-/* Variables */
 black = #666
 blueLight = #77B3D4
 blue = darken(blueLight, 25%)
@@ -18,242 +12,237 @@ green = #2ecc71
 red = #c0392b
 white = #fff
 
-/* Mixins */
 AlignChilds(_childsAlign, _verticalAlign)
-	text-align _childsAlign
+  text-align _childsAlign
 
-	*
-		display inline-block
-		vertical-align _verticalAlign
+  *
+    display inline-block
+    vertical-align _verticalAlign
 
 ApplyBorder(color)
-	border 1px solid color
-	border-radius 2px
+  border 1px solid color
+  border-radius 2px
 
 BuildButton(_color)
-	background _color
-	border 1px solid darken(_color, 25%)
-	Transition()
+  background _color
+  border 1px solid darken(_color, 25%)
+  Transition()
 
-	&:hover
-		background darken(_color, 10%)
+  &:hover
+    background darken(_color, 10%)
 
 Transition()
-	transition .25s all ease
+  transition .25s all ease
 
-/* Base */
 body
-	background gray
-	color black
-	font-family Helvetica
-	font-size 20px
-	letter-spacing 2px
-	min-height 600px
-	min-width 1024px
+  background gray
+  color black
+  font-family Helvetica
+  font-size 20px
+  letter-spacing 2px
+  min-height 600px
+  min-width 1024px
 
 input
-	color black
-	font-family Helvetica
-	font-size 20px
-	letter-spacing 2px
-	outline none
-	padding .5em
-	width 100%
-	ApplyBorder(grayDark)
+  color black
+  font-family Helvetica
+  font-size 20px
+  letter-spacing 2px
+  outline none
+  padding .5em
+  width 100%
+  ApplyBorder(grayDark)
 
 .pure-g [class *="pure-u"]
-	font-family Helvetica
-	font-size 20px
-	letter-spacing 2px
+  font-family Helvetica
+  font-size 20px
+  letter-spacing 2px
 
 .bold
-	font-weight bold
+  font-weight bold
 
 .text-center
-	text-align center
+  text-align center
 
 .text-left
-	text-align left
+  text-align left
 
 .text-right
-	text-align right
+  text-align right
 
 .title
-	display block
-	font-size 1.25em
-	font-weight bold
+  display block
+  font-size 1.25em
+  font-weight bold
 
-	&.large
-		font-size 2em
+  &.large
+    font-size 2em
 
 .underline
-	border-bottom 1px solid grayDark
-	padding-bottom .25em
+  border-bottom 1px solid grayDark
+  padding-bottom .25em
 
-/* Buttons */
 .button
-	background grayDark
-	border 1px solid darken(grayDark, 25%)
-	border-radius 2px
-	color white
-	display block
-	font-size .85em
-	margin .5em
-	padding .75em .5em
-	text-shadow 1px 1px 1px rgba(0, 0, 0, .25)
-	AlignChilds(left, middle)
+  background grayDark
+  border 1px solid darken(grayDark, 25%)
+  border-radius 2px
+  color white
+  display block
+  font-size .85em
+  margin .5em
+  padding .75em .5em
+  text-shadow 1px 1px 1px rgba(0, 0, 0, .25)
+  AlignChilds(left, middle)
 
-	&:hover
-		background darken(grayDark, 10%)
+  &:hover
+    background darken(grayDark, 10%)
 
-	&.blue
-		BuildButton(blue)
+  &.blue
+    BuildButton(blue)
 
-	&.grayDark
-		BuildButton(darken(grayDark, 25%))
+  &.grayDark
+    BuildButton(darken(grayDark, 25%))
 
-	&.green
-		BuildButton(green)
+  &.green
+    BuildButton(green)
 
-	&.red
-		BuildButton(red)
+  &.red
+    BuildButton(red)
 
-	.icon
-		margin-right 1em
+  .icon
+    margin-right 1em
 
-/* Header */
 header
-	background white
-	border-top 3px solid blue
-	border-bottom 1px solid grayDark
-	padding 1em .5em
-	AlignChilds(center, middle)
+  background white
+  border-top 3px solid blue
+  border-bottom 1px solid grayDark
+  padding 1em .5em
+  AlignChilds(center, middle)
 
-	.logo
-		display inline-block
-		font-size 1.25em
-		margin 0
-		Transition()
-		AlignChilds(center, middle)
+  .logo
+    display inline-block
+    font-size 1.25em
+    margin 0
+    Transition()
+    AlignChilds(center, middle)
 
-		&:hover
-			cursor default
+    &:hover
+      cursor default
 
-			.logo-text
-				letter-spacing 10px
+      .logo-text
+        letter-spacing 10px
 
-		.logo-image
-			height 2em
-			width 2em
+    .logo-image
+      height 2em
+      width 2em
 
-		.logo-text
-			letter-spacing 5px
-			padding-left .5em
-			Transition()
+    .logo-text
+      letter-spacing 5px
+      padding-left .5em
+      Transition()
 
-/* Panels */
 .left-panel
-	padding 1em
+  padding 1em
 
-	.panel-row
-		padding 0 .5em 1em
+  .panel-row
+    padding 0 .5em 1em
 
-		.todoList
-			border-left 5px solid gray
-			padding .25em 0
-			margin-bottom 1em
-			Transition()
+    .todo-list
+      border-left 5px solid gray
+      padding .25em 0
+      margin-bottom 1em
+      Transition()
 
-			&:hover
-				border-left 5px solid blue
-				cursor pointer
+      &:hover
+        border-left 5px solid blue
+        cursor pointer
 
-				.name
-					padding-left 2em
+        .name
+          padding-left 2em
 
-			&.show-true
-				border-left 5px solid green
+      &.show-true
+        border-left 5px solid green
 
-			.name
-				padding-left 1em
-				Transition()
+      .name
+        padding-left 1em
+        Transition()
 
-			.percentage
-				display block
-				font-weight bold
-				text-align right
+      .percentage
+        display block
+        font-weight bold
+        text-align right
 
-				&.completed
-					color green
+        &.completed
+          color green
 
 .right-panel
-	margin 1em 1em 1em 2.5em
+  margin 1em 1em 1em 2.5em
 
-	.todoListDashboard
-		background white
-		padding 1em
-		ApplyBorder(grayDark)
+  .todo-list-dashboard
+    background white
+    padding 1em
+    ApplyBorder(grayDark)
 
-		&.ng-enter
-			animation fadeInUp .5s
+    &.ng-enter
+      animation fadeInUp .5s
 
-		&.ng-leave
-			display none
+    &.ng-leave
+      display none
 
-		.actions
-			margin-left 1.5em
+    .actions
+      margin-left 1.5em
 
-			h4
-				margin 1em 0
+      h4
+        margin 1em 0
 
-				&:first-child
-					margin-top 0
+        &:first-child
+          margin-top 0
 
-			.button
-				margin 0 0 1em
-				padding 0.75em 1em
+      .button
+        margin 0 0 1em
+        padding 0.75em 1em
 
-		.main-title
-			margin-top 0
+    .main-title
+      margin-top 0
 
-		.tasks
+    .tasks
 
-			.task
-				margin-bottom 1em
+      .task
+        margin-bottom 1em
 
-				&:hover
-					cursor pointer
+        &:hover
+          cursor pointer
 
-				p
-					margin 0
+        p
+          margin 0
 
-					&.status-true
-						color grayDark
-						text-decoration line-through
+          &.status-true
+            color grayDark
+            text-decoration line-through
 
-				span
-					font-family "icons"
+        span
+          font-family "icons"
 
-				span.status-false:before
-					content "\e739"
+        span.status-false:before
+          content "\e739"
 
-				span.status-true:before
-					color grayDark
-					content "\e738"
+        span.status-true:before
+          color grayDark
+          content "\e738"
 
-				.icon-close
-					display inline-block
-					Transition()
+        .icon-close
+          display inline-block
+          Transition()
 
-					&:hover
-						color red
-						transform scale(1.25)
+          &:hover
+            color red
+            transform scale(1.25)
 
-			.tasks-list
-				margin 1.5em 0
+      .tasks-list
+        margin 1.5em 0
 
-				:last-child
-					margin-bottom 0
+        :last-child
+          margin-bottom 0
 
-			.title
-				margin-bottom 1em
+      .title
+        margin-bottom 1em
