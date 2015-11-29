@@ -1,6 +1,6 @@
 {
   "name": "cherno-alpha",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "description": "(FINISHED) ToDo list built with AngularJS, ngAnimate, express and jade",
   "scripts": {
     "add": "git add .",
