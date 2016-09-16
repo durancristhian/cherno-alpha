@@ -1,6 +1,6 @@
 # cherno-alpha
 
-***(FINISHED)*** :elephant: ToDo list built with AngularJS, ngAnimate, express and jade
+:elephant: ToDo list built with AngularJS, ngAnimate, express and jade
 
 ## Live demo
 
