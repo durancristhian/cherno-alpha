@@ -1,5 +1,7 @@
 # cherno-alpha
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/durancristhian/cherno-alpha.svg)](https://greenkeeper.io/)
+
 :elephant: ToDo list built with AngularJS, ngAnimate, express and jade
 
 ## Live demo
